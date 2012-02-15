@@ -1,0 +1,167 @@
+{
+    "main": {
+        "levels": 30,
+        "title": "Headquarters",
+        "requirements": {},
+        "wood": [90, 1.26],
+        "stone": [80, 1.275],
+        "iron": [70, 1.26],
+        "population": [5, 1.17],
+        "duration": [614400, 1.2]
+    },
+    "barracks": {
+        "levels": 25,
+        "title": "Barracks",
+        "requirements": { "main": 3 },
+        "wood": [200, 1.26],
+        "stone": [170, 1.28],
+        "iron": [90, 1.26],
+        "population": [7, 1.17],
+        "duration": [1228800, 1.2]
+    },
+    "stable": {
+        "levels": 20,
+        "title": "Stable",
+        "requirements": { "main": 10, "barracks": 5, "smith": 5 },
+        "wood": [270, 1.26],
+        "stone": [240, 1.28],
+        "iron": [260, 1.26],
+        "population": [8, 1.17],
+        "duration": [4096000, 1.2]
+    },
+    "garage": {
+        "levels": 15,
+        "title": "Workshop",
+        "requirements": { "main": 10, "smith": 10 },
+        "wood": [300, 1.26],
+        "stone": [240, 1.28],
+        "iron": [260, 1.26],
+        "population": [8, 1.17],
+        "duration": [4096000, 1.2]
+    },
+    "snob": {
+        "levels": 1,
+        "title": "Academy",
+        "requirements": { "main": 20, "smith": 20, "market": 10 },
+        "wood": [15000, 2],
+        "stone": [25000, 2],
+        "iron": [10000, 2],
+        "population": [80, 1.17],
+        "duration": [400588800, 1.2]
+    },
+    "smith": {
+        "levels": 20,
+        "title": "Smithy",
+        "requirements": { "main": 5, "barracks": 1 },
+        "wood": [220, 1.26],
+        "stone": [180, 1.275],
+        "iron": [240, 1.26],
+        "population": [20, 1.17],
+        "duration": [4096000, 1.2]
+    },
+    "place": {
+        "levels": 1,
+        "title": "Rally Point",
+        "requirements": {},
+        "wood": [10, 1.26],
+        "stone": [40, 1.275],
+        "iron": [30, 1.26],
+        "population": [0, 1.17],
+        "duration": [7413760, 1.2]
+    },
+    "statue": {
+        "levels": 1,
+        "title": "Statue",
+        "requirements": {},
+        "wood": [220, 1.26],
+        "stone": [220, 1.275],
+        "iron": [220, 1.26],
+        "population": [10, 1.17],
+        "duration": [1024000, 1.2]
+    },
+    "market": {
+        "levels": 25,
+        "title": "Market",
+        "requirements": { "main": 3, "storage": 2 },
+        "wood": [100, 1.26],
+        "stone": [100, 1.275],
+        "iron": [100, 1.26],
+        "population": [20, 1.17],
+        "duration": [30720, 1.2]
+    },
+    "wood": {
+        "levels": 30,
+        "title": "Timber camp",
+        "requirements": {},
+        "wood": [50, 1.25],
+        "stone": [60, 1.275],
+        "iron": [40, 1.245],
+        "population": [5, 1.155],
+        "duration": [614400, 1.2],
+        "capacity": [30, 1.1631]
+    },
+    "stone": {
+        "levels": 30,
+        "title": "Clay pit",
+        "requirements": {},
+        "wood": [65, 1.27],
+        "stone": [50, 1.265],
+        "iron": [40, 1.24],
+        "population": [10, 1.14],
+        "duration": [614400, 1.2],
+        "capacity": [30, 1.1631]
+    },
+    "iron": {
+        "levels": 30,
+        "title": "Iron mine",
+        "requirements": {},
+        "wood": [75, 1.252],
+        "stone": [65, 1.275],
+        "iron": [70, 1.24],
+        "population": [10, 1.17],
+        "duration": [737280, 1.2],
+        "capacity": [30, 1.1631]
+    },
+    "farm": {
+        "levels": 30,
+        "title": "Farm",
+        "requirements": {},
+        "wood": [45, 1.3],
+        "stone": [40, 1.32],
+        "iron": [30, 1.29],
+        "population": [0, 1],
+        "duration": [819200, 1.2],
+        "capacity": [240, 1.1715]
+    },
+    "storage": {
+        "levels": 30,
+        "title": "Warehouse",
+        "requirements": {},
+        "wood": [60, 1.265],
+        "stone": [50, 1.27],
+        "iron": [40, 1.245],
+        "population": [0, 1.15],
+        "duration": [696320, 1.2],
+        "capacity": [1000, 1.2294934]
+    },
+    "hide": {
+        "levels": 10,
+        "title": "Hiding Place",
+        "requirements": {},
+        "wood": [50, 1.25],
+        "stone": [60, 1.25],
+        "iron": [50, 1.25],
+        "population": [2, 1.17],
+        "duration": [1228800, 1.2]
+    },
+    "wall": {
+        "levels": 20,
+        "title": "Wall",
+        "requirements": { "barracks": 1 },
+        "wood": [50, 1.26],
+        "stone": [100, 1.275],
+        "iron": [20, 1.26],
+        "population": [5, 1.17],
+        "duration": [2457600, 1.2]
+    }
+}

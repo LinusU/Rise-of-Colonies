@@ -1,0 +1,136 @@
+{
+    "barracks": {
+        "spear": {
+            "title": "Spear fighter",
+            "wood": 50,
+            "stone": 30,
+            "iron": 10,
+            "population": 1,
+            "speed": 12,
+            "offense": [10, 10, 10],
+            "defense": [15, 45, 20],
+            "capacity": 25,
+            "duration": 696320
+        },
+        "sword": {
+            "title": "Sword fighter",
+            "wood": 30,
+            "stone": 30,
+            "iron": 70,
+            "population": 1,
+            "speed": 14.667,
+            "offense": [25, 25, 25],
+            "defense": [50, 25, 40],
+            "capacity": 15,
+            "duration": 1024000
+        },
+        "axe": {
+            "title": "Axe fighter",
+            "wood": 60,
+            "stone": 30,
+            "iron": 40,
+            "population": 1,
+            "speed": 12,
+            "offense": [40, 40, 40],
+            "defense": [10,  5, 10],
+            "capacity": 10,
+            "duration": 901120
+        }
+    },
+    "stable": {
+        "spy": {
+            "title": "Scout",
+            "wood": 50,
+            "stone": 50,
+            "iron": 20,
+            "population": 2,
+            "speed": 6,
+            "offense": [40, 40, 40],
+            "defense": [ 2,  1,  2],
+            "capacity": 0,
+            "duration": 614400       
+        },
+        "light": {
+            "title": "Light Cavalry",
+            "wood": 125,
+            "stone": 100,
+            "iron": 250,
+            "population": 4,
+            "speed": 6.667,
+            "offense": [130, 130, 130],
+            "defense": [ 30,  40,  30],
+            "capacity": 80,
+            "duration": 1228800
+        },
+        "heavy": {
+            "title": "Heavy Cavalry",
+            "wood": 200,
+            "stone": 150,
+            "iron": 600,
+            "population": 6,
+            "speed": 7.333,
+            "offense": [150, 150, 150],
+            "defense": [200,  80, 180],
+            "capacity": 80,
+            "duration": 2457600
+        }
+    },
+    "archery": {
+        "archer": {},
+        "marcher": {}
+    },
+    "garage": {
+        "ram": {
+            "title": "Ram",
+            "wood": 300,
+            "stone": 200,
+            "iron": 200,
+            "population": 5,
+            "speed": 20,
+            "offense": [ 2,  2,  2],
+            "defense": [20, 50, 20],
+            "capacity": 0,
+            "duration": 3276800
+        },
+        "catapult": {
+            "title": "Catapult",
+            "wood": 320,
+            "stone": 400,
+            "iron": 100,
+            "population": 8,
+            "speed": 20,
+            "offense": [100, 100, 100],
+            "defense": [100,  50, 100],
+            "capacity": 0,
+            "duration": 4915200
+        }
+    },
+    "statue": {
+        "knight": {
+            "title": "Paladin",
+            "wood": 20,
+            "stone": 20,
+            "iron": 40,
+            "population": 10,
+            "speed": 6.667,
+            "offense": [150, 150, 150],
+            "defense": [250, 400, 150],
+            "capacity": 100,
+            "duration": 14745600
+        }
+    },
+    "snob": {
+        "snob": {
+            "title": "Nobleman",
+            "wood": 40000,
+            "stone": 50000,
+            "iron": 50000,
+            "population": 100,
+            "speed": 23.333,
+            "offense": [ 30, 30,  30],
+            "defense": [100, 50, 100],
+            "capacity": 0,
+            "duration": 12288000
+        }
+    }
+}

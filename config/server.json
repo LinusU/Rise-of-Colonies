@@ -1,0 +1,8 @@
+{
+    "speed": {
+        "resource": 600,
+        "building": 100,
+        "training": 30,
+        "movement": 600
+    }
+}

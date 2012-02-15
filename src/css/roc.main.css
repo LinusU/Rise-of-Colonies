@@ -1,0 +1,35 @@
+
+html, body { margin: 0px; padding: 0px; }
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #630;
+}
+
+a:hover {
+    color: #C00;
+}
+
+hr {
+    clear: both;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    text-align: left;
+}
+
+#site {
+    width: 960px;
+    margin: 0px auto 32px;
+    background: #CCC;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 10pt;
+    box-shadow: 0px 0px 8px #666;
+    border-radius: 0px 0px 12px 12px;
+    overflow: hidden;
+}

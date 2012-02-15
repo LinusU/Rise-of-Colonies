@@ -1,0 +1,110 @@
+
+.b_main {
+    position: absolute;
+    left: 471px;
+    top: 107px;
+}
+
+.b_mainflag {
+    position: absolute;
+    left: 471px;
+    top: 67px;
+}
+
+.b_barracks {
+    position: absolute;
+    left: 563px;
+    top: 185px;
+}
+
+.b_stable {
+    position: absolute;
+    left: 65px;
+    top: 269px;
+}
+
+.b_garage {
+    position: absolute;
+    left: 648px;
+    top: 342px;
+}
+
+.b_statue {
+    position: absolute;
+    left: 257px;
+    top: 292px;
+}
+
+.b_place {
+    position: absolute;
+    left: 325px;
+    top: 215px;
+}
+
+.b_market {
+    position: absolute;
+    left: 212px;
+    top: 126px;
+}
+
+.b_hide {
+    position: absolute;
+    left: 423px;
+    top: 69px;
+}
+
+.b_snob {
+    position: absolute;
+    left: 159px;
+    top: 64px;
+}
+
+.b_storage {
+    position: absolute;
+    left: 105px;
+    top: 125px;
+}
+
+.b_wood {
+    position: absolute;
+    left: 840px;
+    top: 394px;
+}
+
+.b_stone {
+    position: absolute;
+    left: 9px;
+    top: 366px;
+}
+
+.b_iron {
+    position: absolute;
+    left: 10px;
+    top: 9px;
+}
+
+.b_farm {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.b_smith {
+    position: absolute;
+    left: 186px;
+    top: 331px;
+}
+
+.b_wall {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.b_empty {
+    position: absolute;
+    top: 0px; bottom: 0px;
+    left: 0px; right: 0px;
+    width: 100%;
+    height: 100%;
+}

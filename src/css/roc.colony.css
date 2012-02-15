@@ -1,0 +1,52 @@
+
+.icon {
+    background-image: url(/img/icons.png);
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: -4px;
+    background-repeat: no-repeat;
+    background-position: 18px 0px;
+}
+
+.icon.wood { background-position: -18px 0px; }
+.icon.stone { background-position: -36px 0px; }
+.icon.iron { background-position: -54px 0px; }
+.icon.population { background-position: -72px 0px; }
+
+.info {
+    overflow: auto;
+    padding: 12px;
+}
+
+.info .subinfo {
+    float: right;
+    border: 1px solid #7D510F;
+}
+
+.info .subinfo div {
+    float: left;
+    padding: 0px 4px;
+    border: 1px solid #B08D4C;
+    background: #ECD19C;
+}
+
+.info .subinfo div.warning {
+    color: red;
+}
+
+.colony {
+    width: 960px;
+    height: 480px;
+    background-image: url(/img/colony_bg.png);
+    position: relative;
+}
+
+section.building {
+    padding: 12px;
+    background: #EED9AE;
+}
+
+div.building img {
+    margin: 0px 24px 12px 0px;
+}
