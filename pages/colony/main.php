@@ -3,8 +3,7 @@
 if(isset($parts[3])) { switch($parts[3]) {
     case "build":
         $colony->expandBuilding($parts[4]);
-        $this->redirect('/colony/' . $colony->id . '/main/');
-        return 303;
+        return $this->redirect('/colony/' . $colony->id . '/main/');
 }}
 
 $queue = queue::forColony($colony, 'build');

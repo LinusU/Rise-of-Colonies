@@ -7,13 +7,11 @@ if(isset($parts[3])) { switch($parts[3]) {
             $colony->trainUnit($parts[2], $key, $val);
         }
         
-        $smarty->redirect('/colony/' . $colony->id . '/' . $parts[2] . '/');
-        return 303;
+        return $smarty->redirect('/colony/' . $colony->id . '/' . $parts[2] . '/');
     case "abort":
         $queue = queue::select()->where(array($colony, 'id' => $parts[4]))->one();
         if($queue) { $queue->abort(); }
-        $smarty->redirect('/colony/' . $colony->id . '/' . $parts[2] . '/');
-        return 303;
+        return $smarty->redirect('/colony/' . $colony->id . '/' . $parts[2] . '/');
 }}
 
 $smarty->assign('now', time() << 10);
