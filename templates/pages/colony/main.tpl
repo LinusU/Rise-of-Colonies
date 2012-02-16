@@ -70,7 +70,7 @@
             <td><span class="icon wood"></span> {$b->wood}</td>
             <td><span class="icon stone"></span> {$b->stone}</td>
             <td><span class="icon iron"></span> {$b->iron}</td>
-            <td><span class="icon population"></span> {$b->population-$pop}</td>
+            <td>{if $b->population}<span class="icon population"></span> {$b->population-$pop}{/if}</td>
             <td>{($b->duration*$buildings_after['main']->timefactor()/server::speed('building'))|duration}</td>
             <td>{if $colony->canAfford($b) && ($buildings_after['farm']->capacity-$colony->population) >= ($b->population-$pop)}<a href="/colony/{$colony->id}/main/build/{$b->type}/">{if $b->lvl==1}Construct{else}Expand to level {$b->lvl}{/if}</a>{else}Not enough resources{/if}</td>
             {/if}
