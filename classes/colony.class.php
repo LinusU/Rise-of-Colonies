@@ -2,6 +2,8 @@
 
 class colony extends Buzzsql {
     
+    function __toString() { return $this->title; }
+    
     static function createColony() {}
     
     static function findColony($x, $y) {

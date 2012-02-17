@@ -3,6 +3,8 @@
 $colony = new colony($parts[1]);
 $colony->updateColony();
 
+$_SESSION['colony_id'] = $colony->id;
+
 $smarty->assign('colony', $colony);
 
 if(isset($parts[2]) && in_array($parts[2], array('main', 'place', 'storage', 'barracks', 'stable', 'archery', 'garage', 'statue', 'snob', 'wood', 'stone', 'iron', 'market', 'farm'))) {
