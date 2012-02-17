@@ -30,4 +30,17 @@
     <meta name="viewport" content="user-scalable=no, width=1024" />
 </head>
 <body>
+<header>
+    {if $pageUser}
+    <nav>
+        <a href="/account/">{$pageUser}</a>
+        <a href="/logout/">Log out</a>
+    </nav>
+    {else}
+    <nav>
+        <a href="/">Home</a>
+        <a href="/register/">Register an account</a>
+    </nav>
+    {/if}
+</header>
 <div id="site">

@@ -1,0 +1,24 @@
+
+header {
+    background: #821;
+    box-shadow: 0px 0px 8px black;
+    height: 48px;
+}
+
+header nav {
+    width: 944px;
+    padding: 8px;
+    margin: 0px auto;
+}
+
+header nav a {
+    display: block;
+    float: left;
+    color: white;
+    height: 32px;
+    line-height: 32px;
+    padding: 0px 8px;
+    background: black;
+    border-radius: 6px;
+    margin: 0px 8px;
+}
