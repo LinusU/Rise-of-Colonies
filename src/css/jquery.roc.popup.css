@@ -1,7 +1,7 @@
 
 .jquery-roc-popup {
     position: absolute;
-    min-height: 240px;
+    min-height: 60px;
     background-color: rgba(224, 224, 224, 0.9);
     border-radius: 8px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9);

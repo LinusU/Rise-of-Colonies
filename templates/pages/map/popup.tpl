@@ -1,21 +1,28 @@
 
-{if $colony->population > 500}
-<img src="{"img/map/v2.png"|cdn}" style="float: left; margin: 12px;" />
-{else}
-<img src="{"img/map/v1.png"|cdn}" style="float: left; margin: 12px;" />
-{/if}
-
-<h3>{$colony}</h3>
-
-<p>
-    &nbsp;
-</p>
-
-<p style="text-align: center; margin-top: 128px;">
-    {if $colony->user_id == $pageUser->id}
-    <button onclick="window.location.href='/colony/{$colony->id}/';">Go to village</button>
-    {else}
-    <button>Send troops</button>
-    {/if}
-    <button style="margin-left: 32px;">Send resources</button>
-</p>
+<div style="margin: 12px;">
+    
+    <img src="{"img/map/v{$img}.png"|cdn}" style="float: left; margin: 0px 12px 12px 0px; background-color: {if $mine}white{else}red{/if};" />
+    
+    <h3>{$colony}</h3>
+    
+    <table>
+        <tr>
+            <td>Points</td>
+            <td>{$colony->points}</td>
+        </tr>
+        <tr>
+            <td>Owner</td>
+            <td>{if $owner}{$owner}{else}<i>abandond colony</i>{/if}</td>
+        </tr>
+    </table>
+    
+    <p style="text-align: center;">
+        {if $mine}
+        <button onclick="window.location.href='/colony/{$colony->id}/';">Go to colony</button>
+        {else}
+        <button onclick="window.location.href='/colony/{$pageColony->id}/place/?colony={$colony->id}'">Send troops</button>
+        {/if}
+        <button onclick="window.location.href='/colony/{$pageColony->id}/market/?colony={$colony->id}'" style="margin-left: 32px;">Send resources</button>
+    </p>
+    
+</div>
