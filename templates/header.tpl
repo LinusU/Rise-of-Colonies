@@ -21,7 +21,7 @@
         }
         
         window.roc = {
-            user_id: {if $pageUser}{$pageUser->id}{/if}
+            user_id: {if $pageUser}{$pageUser->id}{else}false{/if}
         };
         
     </script>
