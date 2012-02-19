@@ -7,9 +7,10 @@ if(isset($parts[1], $parts[2])) {
     echo json_encode(Buzzstmt::construct(
         "
         SELECT
+            `user_id`,
             `id` AS `colony_id`,
             'colony' AS `type`,
-            `x`, `y`, `population`
+            `x`, `y`, `points`
         FROM
             `colony`
         WHERE

@@ -16,6 +16,14 @@
             success: function() { $.holdReady(false); }
         });
         
+        function cdn(url) {
+            return "{""|cdn}" + url;
+        }
+        
+        window.roc = {
+            user_id: {if $pageUser}{$pageUser->id}{/if}
+        };
+        
     </script>
     <!--[if lt IE 9]>
     <script type="text/javascript">

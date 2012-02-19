@@ -1,29 +1,31 @@
 
 {include file="pages/colony/top.tpl"}
 
-<section class="map"></section>
+<section class="map-view zoom-4"></section>
 
 <script type="text/javascript">
     $(function () {
         
-        var $map = $('section.map');
-        var $inner = $('<div />').appendTo($map);
+        var $map = $('section.map-view');
+        var $inner = $('<div class="map-inner" />').appendTo($map);
+        var $zoom = $('<div class="map-zoom" />').appendTo($map);
         
         var $popup = false;
         
         $map.css({
-            position: 'relative',
-            overflow: 'hidden',
             width: 960,
             height: 480
         });
         
         $inner.css({
-            position: 'absolute',
-            width: 320 * 20,
-            height: 240 * 20,
-            left: -160 * 20 + 480,
-            top: -120 * 20 + 240
+            left: 480,
+            top: 240
+        });
+        
+        $zoom.append('<button>0</button><button>1</button><button>2</button><button>3</button><button>4</button>');
+        
+        $zoom.find('button').on('click', function () {
+            $map.removeClass('zoom-0 zoom-1 zoom-2 zoom-3 zoom-4').addClass('zoom-' + $(this).index());
         });
         
         var loaded = {};
@@ -36,17 +38,11 @@
             
             loaded[x + "," + y] = true;
             
-            var $tile = $('<div />');
+            var $tile = $('<div class="map-tile" />').append('<img src="{"img/map/bg.png"|cdn}" />');
             
             $tile.css({
-                background: "url({"img/map/bg.png"|cdn})",
-                position: 'absolute',
-                width: 320 - 1,
-                height: 240 - 1,
-                left: (x + 10) * 320,
-                top: (y + 10) * 240,
-                borderTop: '1px solid #060',
-                borderLeft: '1px solid #060'
+                left: x * 100 + '%',
+                top: y * 100 + '%'
             });
             
             if(x == 0) { $tile.css('borderLeftColor', 'black'); }
@@ -57,14 +53,15 @@
                 success: function (data) {
                     
                     $.each(data, function (i, colony) {
-                        ( colony.population > 500 ? $('<img src="{"img/map/v2.png"|cdn}" />') : $('<img src="{"img/map/v1.png"|cdn}" />') )
+                        
+                        $('<div class="map-cell" />')
+                            .addClass('type-' + colony.type)
                             .appendTo($tile)
+                            .append($('<img />').attr('src', cdn("img/map/v" + (colony.points<300?1:(colony.points<1000?2:(colony.points<3000?3:(colony.points<9000?4:(colony.points<11000?5:6))))) + (colony.user_id>0?"":"_left") + ".png")))
                             .css({
-                                position: 'absolute',
-                                left: (colony.x - x * 5) * 64,
-                                top: (colony.y - y * 5) * 48,
-                                width: 64, height: 48,
-                                cursor: 'pointer'
+                                left: (colony.x - x * 5) * 20 + '%',
+                                top: (colony.y - y * 5) * 20 + '%',
+                                backgroundColor: ( colony.user_id == window.roc.user_id ? 'white' : 'red' )
                             })
                             .on('click', function () {
                                 if($popup) { $popup.popup('destroy'); }
@@ -107,7 +104,7 @@
         }
         
         var cx = 0, cy = 0;
-        var dragging = false, sx, sy;
+        var dragging = false, moved = false, sx, sy;
         
         $inner.on('mousedown', function (e) {
             e.preventDefault();
@@ -116,7 +113,12 @@
             sy = e.screenY;
         });
         
+        $(document).on('mousedown', function () {
+            moved = false;
+        });
+        
         $(document).on('mousemove', function (e) {
+            moved = true;
             if(!dragging) { return ; }
             e.preventDefault();
             $inner.css({
@@ -132,10 +134,23 @@
         });
         
         $(document).on('mouseup', function (e) {
+            if(!moved) {
+                if($popup) { $popup.popup('destroy'); }
+                $popup = false;
+            }
+            moved = false;
             if(!dragging) { return ; }
             e.preventDefault();
             dragging = false;
         });
+        
+        $(document).on('keyup', function (e) {
+            if(e.which == 27 && $popup) {
+                e.preventDefault();
+                $popup.popup('destroy');
+                $popup = false;
+            }
+        })
         
         loadCurrent();
         
