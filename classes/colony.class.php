@@ -40,7 +40,7 @@ class colony extends Buzzsql {
         
         foreach($queue as $item) {
             
-            if($item->end > $time) {
+            if($item->end > $now) {
                 
                 switch($item->type) {
                     case 'barracks':
