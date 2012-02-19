@@ -200,11 +200,6 @@ class colony extends Buzzsql {
     }
     
     function canAfford($item) {
-        return min(
-            floor($this->r_wood / $item->wood),
-            floor($this->r_stone / $item->stone),
-            floor($this->r_iron / $item->iron)
-        );
         if($item instanceof building) {
             return min(
                 floor($this->r_wood / $item->wood),
