@@ -7,7 +7,8 @@
         "stone": [80, 1.275],
         "iron": [70, 1.26],
         "population": [5, 1.17],
-        "duration": [614400, 1.2]
+        "duration": [614400, 1.2],
+        "points": [10, 1.2]
     },
     "barracks": {
         "levels": 25,
@@ -17,7 +18,8 @@
         "stone": [170, 1.28],
         "iron": [90, 1.26],
         "population": [7, 1.17],
-        "duration": [1228800, 1.2]
+        "duration": [1228800, 1.2],
+        "points": [16, 1.2]
     },
     "stable": {
         "levels": 20,
@@ -27,7 +29,8 @@
         "stone": [240, 1.28],
         "iron": [260, 1.26],
         "population": [8, 1.17],
-        "duration": [4096000, 1.2]
+        "duration": [4096000, 1.2],
+        "points": [20, 1.2]
     },
     "garage": {
         "levels": 15,
@@ -37,7 +40,8 @@
         "stone": [240, 1.28],
         "iron": [260, 1.26],
         "population": [8, 1.17],
-        "duration": [4096000, 1.2]
+        "duration": [4096000, 1.2],
+        "points": [24, 1.2]
     },
     "snob": {
         "levels": 1,
@@ -47,7 +51,8 @@
         "stone": [25000, 2],
         "iron": [10000, 2],
         "population": [80, 1.17],
-        "duration": [400588800, 1.2]
+        "duration": [400588800, 1.2],
+        "points": [512, 1.2]
     },
     "smith": {
         "levels": 20,
@@ -57,7 +62,8 @@
         "stone": [180, 1.275],
         "iron": [240, 1.26],
         "population": [20, 1.17],
-        "duration": [4096000, 1.2]
+        "duration": [4096000, 1.2],
+        "points": [19, 1.2]
     },
     "place": {
         "levels": 1,
@@ -67,7 +73,8 @@
         "stone": [40, 1.275],
         "iron": [30, 1.26],
         "population": [0, 1.17],
-        "duration": [7413760, 1.2]
+        "duration": [7413760, 1.2],
+        "points": [0, 1.2]
     },
     "statue": {
         "levels": 1,
@@ -77,7 +84,8 @@
         "stone": [220, 1.275],
         "iron": [220, 1.26],
         "population": [10, 1.17],
-        "duration": [1024000, 1.2]
+        "duration": [1024000, 1.2],
+        "points": [24, 1.2]
     },
     "market": {
         "levels": 25,
@@ -87,7 +95,8 @@
         "stone": [100, 1.275],
         "iron": [100, 1.26],
         "population": [20, 1.17],
-        "duration": [30720, 1.2]
+        "duration": [30720, 1.2],
+        "points": [10, 1.2]
     },
     "wood": {
         "levels": 30,
@@ -98,7 +107,8 @@
         "iron": [40, 1.245],
         "population": [5, 1.155],
         "duration": [614400, 1.2],
-        "capacity": [30, 1.1631]
+        "capacity": [30, 1.1631],
+        "points": [6, 1.2]
     },
     "stone": {
         "levels": 30,
@@ -109,7 +119,8 @@
         "iron": [40, 1.24],
         "population": [10, 1.14],
         "duration": [614400, 1.2],
-        "capacity": [30, 1.1631]
+        "capacity": [30, 1.1631],
+        "points": [6, 1.2]
     },
     "iron": {
         "levels": 30,
@@ -120,7 +131,8 @@
         "iron": [70, 1.24],
         "population": [10, 1.17],
         "duration": [737280, 1.2],
-        "capacity": [30, 1.1631]
+        "capacity": [30, 1.1631],
+        "points": [6, 1.2]
     },
     "farm": {
         "levels": 30,
@@ -131,7 +143,8 @@
         "iron": [30, 1.29],
         "population": [0, 1],
         "duration": [819200, 1.2],
-        "capacity": [240, 1.1715]
+        "capacity": [240, 1.1715],
+        "points": [5, 1.2]
     },
     "storage": {
         "levels": 30,
@@ -142,7 +155,8 @@
         "iron": [40, 1.245],
         "population": [0, 1.15],
         "duration": [696320, 1.2],
-        "capacity": [1000, 1.2294934]
+        "capacity": [1000, 1.2294934],
+        "points": [6, 1.2]
     },
     "hide": {
         "levels": 10,
@@ -152,7 +166,8 @@
         "stone": [60, 1.25],
         "iron": [50, 1.25],
         "population": [2, 1.17],
-        "duration": [1228800, 1.2]
+        "duration": [1228800, 1.2],
+        "points": [5, 1.2]
     },
     "wall": {
         "levels": 20,
@@ -162,6 +177,7 @@
         "stone": [100, 1.275],
         "iron": [20, 1.26],
         "population": [5, 1.17],
-        "duration": [2457600, 1.2]
+        "duration": [2457600, 1.2],
+        "points": [8, 1.2]
     }
 }

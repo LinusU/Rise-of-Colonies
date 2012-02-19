@@ -10,6 +10,17 @@ class colony extends Buzzsql {
         return self::select()->where(array('x' => $x, 'y' => $y))->one();
     }
     
+    function updatePoints() {
+        
+        $this->points = 0;
+        
+        foreach(building::all($this) as $building) {
+            $this->points += $building->points;
+        }
+        
+        return $this->points;
+    }
+    
     function updateColony() {
         
         $now = (time() << 10);
@@ -34,6 +45,7 @@ class colony extends Buzzsql {
             switch($item->type) {
                 case 'build':
                     $this->{"b_" . $item->subtype}++;
+                    $this->updatePoints();
                     break;
                 case 'barracks':
                 case 'stable':
