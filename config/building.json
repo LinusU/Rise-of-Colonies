@@ -32,6 +32,17 @@
         "duration": [4096000, 1.2],
         "points": [20, 1.2]
     },
+    "archery": {
+        "levels": 20,
+        "title": "Archery",
+        "requirements": { "main": 15, "barracks": 10, "stable": 5, "smith": 5 },
+        "wood": [325, 1.27],
+        "stone": [340, 1.26],
+        "iron": [260, 1.27],
+        "population": [8, 1.17],
+        "duration": [4096000, 1.2],
+        "points": [20, 1.2]
+    },
     "garage": {
         "levels": 15,
         "title": "Workshop",
