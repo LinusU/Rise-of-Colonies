@@ -21,8 +21,10 @@
             .appendTo('body')
             .load(this.options.url)
             .css({
-                width: this.options.width
-            });
+                width: this.options.width,
+                opacity: 0
+            })
+            .animate({ opacity: 1 }, 200);
         
         this.update();
         
@@ -39,7 +41,10 @@
     };
     
     Plugin.prototype.destroy = function () {
-        this.popup.remove();
+        var that = this;
+        this.popup.animate({ opacity: 0 }, 200, function () {
+            that.popup.remove();
+        });
         $.data(this.element, 'plugin_' + pluginName, null);
     };
     
