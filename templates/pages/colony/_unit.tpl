@@ -14,7 +14,7 @@
         </colgroup>
         
         <tr>
-            <th>Unit</th>
+            <th>In training</th>
             <th>Duration</th>
             <th>Completion</th>
             <th>Abortion</th>

@@ -29,7 +29,7 @@ class colony extends Buzzsql {
             "
             `colony_id` = '?' AND
             `end` > '?' AND
-            `end` <= '?'
+            `start` <= '?'
             ",
             $this->id,
             $this->updated,
@@ -39,6 +39,30 @@ class colony extends Buzzsql {
         )->many();
         
         foreach($queue as $item) {
+            
+            if($item->end > $time) {
+                
+                switch($item->type) {
+                    case 'barracks':
+                    case 'stable':
+                    case 'archery':
+                    case 'garage':
+                        
+                        $perunit = ($item->end - $item->start) / $item->qty;
+                        $hasrunned = $now - $item->start;
+                        $unitsdone = floor($hasrunned / $perunit);
+                        
+                        $item->start += $unitsdone * $perunit;
+                        $item->qty -= $unitsdone;
+                        $item->save();
+                        
+                        $this->{"u_" . $item->subtype} += $unitsdone;
+                        
+                        break;
+                }
+                
+                continue;
+            }
             
             $this->updateResources($item->end - $this->updated);
             
