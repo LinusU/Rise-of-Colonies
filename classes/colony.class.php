@@ -174,7 +174,7 @@ class colony extends Buzzsql {
             return false;
         }
         
-        if($u->population * $qty > $this->maxPopulation() - $this->population) {
+        if($u->population * $qty > $this->freePopulation()) {
             return false;
         }
         
@@ -195,12 +195,31 @@ class colony extends Buzzsql {
         return $this->building('farm')->capacity;
     }
     
+    function freePopulation() {
+        return $this->maxPopulation() - $this->population;
+    }
+    
     function canAfford($item) {
         return min(
             floor($this->r_wood / $item->wood),
             floor($this->r_stone / $item->stone),
             floor($this->r_iron / $item->iron)
         );
+        if($item instanceof building) {
+            return min(
+                floor($this->r_wood / $item->wood),
+                floor($this->r_stone / $item->stone),
+                floor($this->r_iron / $item->iron)
+                /* FIXME: population */
+            );
+        } else {
+            return min(
+                floor($this->r_wood / $item->wood),
+                floor($this->r_stone / $item->stone),
+                floor($this->r_iron / $item->iron),
+                floor($this->freePopulation() / $item->population)
+            );
+        }
     }
     
     function getQueue($type = null) {
