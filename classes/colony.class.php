@@ -47,6 +47,8 @@ class colony extends Buzzsql {
                     case 'stable':
                     case 'archery':
                     case 'garage':
+                    case 'statue':
+                    case 'snob':
                         
                         $perunit = ($item->end - $item->start) / $item->qty;
                         $hasrunned = $now - $item->start;
@@ -75,6 +77,8 @@ class colony extends Buzzsql {
                 case 'stable':
                 case 'archery':
                 case 'garage':
+                case 'statue':
+                case 'snob':
                     $this->{"u_" . $item->subtype} += $item->qty;
                     break;
             }
