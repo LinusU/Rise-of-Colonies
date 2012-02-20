@@ -1,7 +1,15 @@
 <?php
 
+if(!user::logged_in()) {
+    return 403;
+}
+
 $colony = new colony($parts[1]);
 $colony->updateColony();
+
+if($colony->user_id != user::get_auth()->id) {
+    return 403;
+}
 
 $_SESSION['colony_id'] = $colony->id;
 
