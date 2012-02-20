@@ -38,7 +38,7 @@
 .colony {
     width: 960px;
     height: 480px;
-    background-image: url(/img/colony_bg.png);
+    background-image: url(/img/colony/back.jpg);
     position: relative;
 }
 
