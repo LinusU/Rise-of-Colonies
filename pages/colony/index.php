@@ -15,9 +15,11 @@ $_SESSION['colony_id'] = $colony->id;
 
 $smarty->assign('colony', $colony);
 
-if(isset($parts[2]) && in_array($parts[2], array('main', 'place', 'storage', 'barracks', 'stable', 'archery', 'garage', 'statue', 'snob', 'wood', 'stone', 'iron', 'market', 'farm'))) {
+if(isset($parts[2])) {
+    
     $building = new building($parts[2], $colony->{"b_" . $parts[2]});
     $smarty->assign('building', $building);
+    
     switch($parts[2]) {
         case 'barracks':
         case 'stable':
@@ -31,27 +33,28 @@ if(isset($parts[2]) && in_array($parts[2], array('main', 'place', 'storage', 'ba
         case 'wood':
         case 'stone':
         case 'iron':
-            $ret = true;
+            $ret = 200;
             $tpl = "_resource";
             break;
         case 'farm':
-            $ret = true;
-            $tpl = "farm";
-            break;
         case 'market':
-            $ret = true;
-            $tpl = "market";
-            break;
         case 'place':
-            $ret = true;
-            $tpl = "place";
+            $ret = 200;
+            $tpl = $parts[2];
             break;
-        default:
+        case 'main':
+        case 'storage':
             $ret = (include (dirname(__FILE__) . '/' . $parts[2] . '.php'));
             $tpl = $parts[2];
+            break;
+        default: return 403;
     }
-    $smarty->display('pages/colony/top.tpl');
-    $smarty->display('pages/colony/' . $tpl . '.tpl');
+    
+    if($ret == 200) {
+        $smarty->display('pages/colony/top.tpl');
+        $smarty->display('pages/colony/' . $tpl . '.tpl');
+    }
+    
     return $ret;
 }
 

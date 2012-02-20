@@ -18,3 +18,5 @@ $smarty->assign('now', time() << 10);
 $smarty->assign('queue', $queue);
 $smarty->assign('buildings', $buildings);
 $smarty->assign('buildings_after', $buildings_after);
+
+return 200;
