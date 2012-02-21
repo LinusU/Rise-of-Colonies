@@ -38,11 +38,11 @@ if(isset($parts[2])) {
             break;
         case 'farm':
         case 'market':
-        case 'place':
             $ret = 200;
             $tpl = $parts[2];
             break;
         case 'main':
+        case 'place':
         case 'storage':
             $ret = (include (dirname(__FILE__) . '/' . $parts[2] . '.php'));
             $tpl = $parts[2];

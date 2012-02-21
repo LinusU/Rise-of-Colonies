@@ -10,6 +10,10 @@ class colony extends Buzzsql {
         return self::select()->where(array('x' => $x, 'y' => $y))->one();
     }
     
+    function distanceTo($colony) {
+        return sqrt(pow($this->x - $colony->x, 2) + pow($this->y - $colony->y, 2));
+    }
+    
     function updatePoints() {
         
         $this->points = 0;
@@ -21,22 +25,44 @@ class colony extends Buzzsql {
         return $this->points;
     }
     
-    function updateColony() {
+    function updateColony($now = null) {
         
-        $now = (time() << 10);
+        $now = ( $now === null ? (time() << 10) : $now );
         
-        $queue = queue::select()->where(
-            "
-            `colony_id` = '?' AND
-            `end` > '?' AND
-            `start` <= '?'
-            ",
-            $this->id,
-            $this->updated,
-            $now
-        )->order_by(
-            "`end` ASC"
-        )->many();
+        $queue = array_merge(
+            queue::select()->where(
+                "
+                `colony_id` = '?' AND
+                `end` > '?' AND
+                `start` <= '?'
+                ",
+                $this->id,
+                $this->updated,
+                $now
+            )->order_by(
+                "`end` ASC"
+            )->many(),
+            movement::select()->where(
+                "
+                '?' IN (`colony_from`, `colony_to`) AND
+                `end` > '?' AND
+                `start` <= '?'
+                ",
+                $this->id,
+                $this->updated,
+                $now
+            )->order_by(
+                "`end` ASC"
+            )->many()
+        );
+        
+        usort($queue, function ($a, $b) {
+            if($a->end == $b->end) {
+                return ( $a instanceof movement ? 1 : -1 );
+            } else {
+                return ( $a->end > $b->end ? 1 : -1 );
+            }
+        });
         
         foreach($queue as $item) {
             
@@ -67,8 +93,14 @@ class colony extends Buzzsql {
             }
             
             $this->updateResources($item->end - $this->updated);
+            $this->updated = $item->end;
+            
+            if($item->colony_id != $this->id) {
+                continue ;
+            }
             
             switch($item->type) {
+                /* queue */
                 case 'build':
                     $this->{"b_" . $item->subtype}++;
                     $this->updatePoints();
@@ -81,9 +113,47 @@ class colony extends Buzzsql {
                 case 'snob':
                     $this->{"u_" . $item->subtype} += $item->qty;
                     break;
+                /* movement */
+                case 'attack':
+                case 'assist':
+                    
+                    $data = $item->get_row();
+                    
+                    unset($data['id']);
+                    
+                    $from = $data['colony_from'];
+                    $data['colony_from'] = $data['colony_to'];
+                    $data['colony_to'] = $from;
+                    
+                    $diff = $data['end'] - $data['start'];
+                    
+                    $data['start'] += $diff;
+                    $data['end'] += $diff;
+                    
+                    $data['type'] = 'return';
+                    
+                    movement::insert($data);
+                    
+                    break;
+                case 'trade':
+                    $this->r_wood += $item->r_wood;
+                    $this->r_food += $item->r_food;
+                    $this->r_stone += $item->r_stone;
+                    $this->r_iron += $item->r_iron;
+                    break;
+                case 'return':
+                    $this->r_wood += $item->r_wood;
+                    $this->r_food += $item->r_food;
+                    $this->r_stone += $item->r_stone;
+                    $this->r_iron += $item->r_iron;
+                    foreach(unit::$data as $b => $val) {
+                        foreach($val as $u => $val) {
+                            $this->{"u_" . $u} += $item->{"u_" . $u};
+                        }
+                    }
+                    break;
             }
             
-            $this->updated = $item->end;
         }
         
         if($this->updateResources($now - $this->updated)) {
