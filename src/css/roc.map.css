@@ -1,0 +1,74 @@
+
+.map-view {
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+}
+
+.map-zoom {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+}
+
+.map-inner {
+    position: absolute;
+    overflow: visible;
+}
+
+.map-tile {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #472;
+}
+
+.map-tile>img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.map-cell {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+}
+
+.map-cell.type-colony {
+    cursor: pointer;
+}
+
+.map-cell>img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.map-inner {
+    -webkit-transition-duration: 400ms;
+    -webkit-transition-property: width, height;
+}
+
+.map-inner img {
+    -webkit-transition-duration: 400ms;
+    -webkit-transition-property: opacity;
+}
+
+.map-view.zoom-0 .map-inner { width: 20px; height: 15px; }
+.map-view.zoom-1 .map-inner { width: 40px; height: 30px; }
+.map-view.zoom-2 .map-inner { width: 80px; height: 60px; }
+.map-view.zoom-3 .map-inner { width: 160px; height: 120px; }
+.map-view.zoom-4 .map-inner { width: 320px; height: 240px; }
+
+.map-view.zoom-0 .map-tile>img,
+.map-view.zoom-1 .map-tile>img,
+.map-view.zoom-2 .map-tile>img { opacity: 0; }
+
+.map-view.zoom-0 .map-cell>img,
+.map-view.zoom-1 .map-cell>img,
+.map-view.zoom-2 .map-cell>img { opacity: 0; }
