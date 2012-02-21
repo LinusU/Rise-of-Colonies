@@ -20,9 +20,9 @@
         {if $mine}
         <button onclick="window.location.href='/colony/{$colony->id}/';">Go to colony</button>
         {else}
-        <button onclick="window.location.href='/colony/{$pageColony->id}/place/?colony={$colony->id}'">Send troops</button>
+        <button onclick="window.location.href='/colony/{$pageUser->colony()->id}/place/?colony={$colony->id}'">Send troops</button>
         {/if}
-        <button onclick="window.location.href='/colony/{$pageColony->id}/market/?colony={$colony->id}'" style="margin-left: 32px;">Send resources</button>
+        <button onclick="window.location.href='/colony/{$pageUser->colony()->id}/market/?colony={$colony->id}'" style="margin-left: 32px;">Send resources</button>
     </p>
     
 </div>
