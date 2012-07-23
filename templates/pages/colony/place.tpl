@@ -3,6 +3,45 @@
     
     {include file="pages/colony/_building.tpl"}
     
+    {if count($movement)}
+    <table style="margin-bottom: 24px;">
+        
+        <colgroup>
+            <col style="width: 192px;" />
+            <col style="width: 96px;" />
+            <col style="width: 160px;" />
+            <col style="width: auto;" />
+        </colgroup>
+        
+        <tr>
+            <th>Movement</th>
+            <th>Duration</th>
+            <th>Completion</th>
+            <th>Abortion</th>
+        </tr>
+        
+        {foreach from=$movement item=m}
+        <tr>
+            <td>
+                {if $m->type == 'attack'}
+                Attacking {$m->colony('to')}
+                {elseif $m->type == 'assist'}
+                Assisting {$m->colony('to')}
+                {elseif $m->type == 'trade'}
+                Trading with {$m->colony('to')}
+                {elseif $m->type == 'return'}
+                Returning from {$m->colony('from')}
+                {/if}
+            </td>
+            <td><time datetime="{$m->end|date}" class="duration">{($m->end-$now)|duration}</time></td>
+            <td><time datetime="{$m->end|date}">{$m->end|date}</time></td>
+            <td><a href="abort/{$m->id}/">Abort</a></td>
+        </tr>
+        {/foreach}
+        
+    </table>
+    {/if}
+    
     {if $target}
     <form action="?colony={$target->id}" method="post">
         

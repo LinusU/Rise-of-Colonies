@@ -46,6 +46,8 @@ if(isset($_POST['unit']) && $target) {
     
 }
 
+$smarty->assign('now', time() << 10);
 $smarty->assign('target', $target);
+$smarty->assign('movement', movement::forColony($colony));
 
 return 200;

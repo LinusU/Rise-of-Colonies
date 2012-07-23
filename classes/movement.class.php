@@ -31,4 +31,21 @@ class movement extends Buzzsql {
         
     }
     
+    static function forColony($colony, $type = null) {
+        $now = time() << 10;
+        if($type === null) {
+            return self::select()->where("`colony_id` = '?' AND `end` > '?'", $colony->id, $now)->order_by("`end` ASC")->many();
+        } else {
+            return self::select()->where("`colony_id` = '?' AND `end` > '?' AND `type` = '?'", $colony->id, $now, $type)->order_by("`end` ASC")->many();
+        }
+    }
+    
+    function colony($which = null) {
+        switch($which) {
+            case 'to': return new colony($this->colony_to);
+            case 'from': return new colony($this->colony_from);
+            default: return new colony($this->colony_id);
+        }
+    }
+    
 }
